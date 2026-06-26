@@ -64,8 +64,8 @@ See [`reports/`](reports/) for a full example report (technicals, fundamentals, 
 
 ```bash
 # 1. Clone
-git clone https://github.com/praveenpke/tradingagents-glm.git
-cd tradingagents-glm
+git clone https://github.com/praveenpke/investing-agent.git
+cd investing-agent
 
 # 2. Create a virtual environment
 python -m venv .venv
