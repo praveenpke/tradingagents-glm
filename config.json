@@ -11,5 +11,9 @@
   "max_debate_rounds": 1,
   "request_timeout_seconds": 150,
   "max_retries": 3,
-  "output_dir": "reports"
+  "output_dir": "reports",
+  "dashboard": {
+    "port": 4400,
+    "max_workers": 2
+  }
 }

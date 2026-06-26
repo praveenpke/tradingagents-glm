@@ -12,10 +12,27 @@ You give it a ticker; a team of LLM agents — technical analyst, fundamentals a
 
 The multi-agent *framework* is [TradingAgents](https://github.com/TauricResearch/TradingAgents) (by Tauric Research). **This repo is the integration + UX layer on top of it:**
 
+- 🖥️ **Local web dashboard** ("Equity Observatory") — add tickers, watch **live per-agent progress** on each tile, and click into a clean report view. Results are **cached locally** and persist across restarts.
 - 🔌 **GLM 5.2 Coding Plan integration** — including the non-obvious fix that the Coding Plan uses a **different endpoint** (`/api/coding/paas/v4/`) than the standard pay-as-you-go API (which returns a balance error).
 - ⚙️ **`config.json`-driven** — change ticker, date, analysts, model, and endpoint without touching code.
 - 📄 **Markdown report export** — every agent's section saved to `reports/<TICKER>_<DATE>.md`.
 - 🛡️ **Reliability fixes** — per-request timeout + retries (GLM can stall on the huge debate prompts), Windows UTF-8 handling, and a content-filter-safe default analyst set.
+
+---
+
+## 🖥️ The Dashboard
+
+```bash
+python server.py     # then open http://localhost:4400
+```
+
+![Equity Observatory dashboard](docs/dashboard.png)
+
+- **Add a ticker** (or click a quick-add chip) → a tile appears and the agent team starts working.
+- **Live progress** — each running tile shows the current agent (Market → Fundamentals → Bull/Bear debate → Trader → Risk → Portfolio Manager), a progress stepper, and an elapsed timer.
+- **Run several at once** — tickers queue and process across worker threads (`config.json → dashboard.max_workers`).
+- **Click a finished tile** → a clean, editorial **report view** (rendered from the markdown).
+- **Cached locally** — finished analyses are saved to `reports/` and reappear as tiles when you restart the server. Remove a tile with the ✕.
 
 ---
 

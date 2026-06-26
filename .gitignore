@@ -17,10 +17,14 @@ __pycache__/
 # Runtime logs / scratch
 run.log
 *.log
+dash_server.log
+
+# Dashboard runtime state (local cache index)
+dashboard_state.json
+
+# Generated reports are local — keep the repo clean. A sample is force-added for the demo.
+reports/
 
 # OS
 .DS_Store
 Thumbs.db
-
-# Keep the reports/ folder and the sample report, but ignore noise:
-reports/*.tmp
